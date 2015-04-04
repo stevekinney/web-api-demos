@@ -1,0 +1,16 @@
+{
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "quotes": [1, "single"]
+  },
+  "ecmaFeatures": {
+    "templateStrings": true
+  },
+  "globals": {
+    "document": true,
+    "console": true,
+    "window": true
+  }
+}

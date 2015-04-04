@@ -1,0 +1,24 @@
+{
+  "name": "web-api-demos",
+  "version": "1.0.0",
+  "description": "Some quick demos showing off what the web can do.",
+  "main": "entry.js",
+  "dependencies": {
+    "eslint": "^0.18.0",
+    "jshint": "^2.6.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stevekinney/web-api-demos.git"
+  },
+  "author": "Steve Kinney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevekinney/web-api-demos/issues"
+  },
+  "homepage": "https://github.com/stevekinney/web-api-demos"
+}
