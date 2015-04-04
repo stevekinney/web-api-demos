@@ -7,7 +7,19 @@ body {
   font-weight: 300;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+video {
+  height: 300px;
+}
+
 .container {
   margin: auto;
   max-width: 600px;
+}
+
+.hidden {
+  display: none;
 }
