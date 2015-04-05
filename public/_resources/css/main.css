@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+video {
+  height: 300px;
+}
+
+.container {
+  margin: auto;
+  max-width: 600px;
+}
+
+.hidden {
+  display: none;
+}
+
+input {
+  width: 100%;
+}
+
+label {
+  margin-bottom: 0.5em;
+}
+
+input[type=text] {
+  border: none;
+  background-color: #DDD;
+  padding: 1em;
+  margin: 0.5em 0 1em 0;
+}
+
+button, input[type=submit], .button {
+  border: none;
+  background-color: rgb(29, 178, 212);
+  color: white;
+  padding: 1em;
+}
+
+a {
+  color: rgb(49, 198, 232);
+  text-decoration: none;
+}
+
+button:hover, input[type=submit]:hover, .button:hover {
+  background-color: rgb(49, 198, 232);
+}
+
+button:active, input[type=submit]:active, .button:active {
+  background-color: rgb(19, 178, 202);
+}
