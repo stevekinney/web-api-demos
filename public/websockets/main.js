@@ -31,10 +31,10 @@
   // Utility functions to modifying the page when an event is received over the
   // WebSocket connection.
   function addMessageToPage(data) {
-    var messageAuthor = document.createElement('strong')
-                                .appendChild(document.createTextNode(`${data.author}: `));
+    var messageAuthor = document.createElement('strong');
+    messageAuthor.appendChild(document.createTextNode(`${data.author}: `));
     var messageContent = document.createTextNode(data.message);
-    var newMessage = document.createElement('div');
+    var newMessage = document.createElement('p');
     newMessage.className = 'message';
     newMessage.appendChild(messageAuthor);
     newMessage.appendChild(messageContent);
@@ -42,8 +42,12 @@
   }
 
   function updateStatus(connectionMessage, data) {
-    var users = data.connections === 1 ? 'user' : 'users';
-    statusMessage.textContent = `${connectionMessage}
-                                 There are now ${data.connections} ${users}.`;
+    var numberOfUsers;
+    if (data.connections === 1) {
+      numberOfUsers = `You are the only user in the room.`;
+    } else {
+      numberOfUsers = `There are now ${data.connections} users.`;
+    }
+    statusMessage.textContent = `${connectionMessage} ${numberOfUsers}`;
   }
 }());
