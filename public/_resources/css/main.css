@@ -46,15 +46,23 @@ button, input[type=submit], .button {
   padding: 1em;
 }
 
-a {
-  color: rgb(49, 198, 232);
-  text-decoration: none;
-}
-
 button:hover, input[type=submit]:hover, .button:hover {
   background-color: rgb(49, 198, 232);
 }
 
 button:active, input[type=submit]:active, .button:active {
   background-color: rgb(19, 178, 202);
+}
+
+a {
+  color: rgb(49, 198, 232);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(19, 178, 202);
+}
+
+a:active {
+  color: rgb(29, 178, 212);
 }

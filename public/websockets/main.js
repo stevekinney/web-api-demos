@@ -28,7 +28,7 @@
   socket.on('new connection', updateStatus.bind(null, 'A new user has connected.'));
   socket.on('lost connection', updateStatus.bind(null, 'Someone has disconnected.'));
 
-  // Utility functions to modifying the page when an event is received over the
+  // Utility functions for modifying the page when an event is received over the
   // WebSocket connection.
   function addMessageToPage(data) {
     var messageAuthor = document.createElement('strong');
@@ -43,6 +43,7 @@
 
   function updateStatus(connectionMessage, data) {
     var numberOfUsers;
+    // Grammar is hard.
     if (data.connections === 1) {
       numberOfUsers = `You are the only user in the room.`;
     } else {
