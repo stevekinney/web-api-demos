@@ -2,12 +2,16 @@
   "name": "web-api-demos",
   "version": "1.0.0",
   "description": "Some quick demos showing off what the web can do.",
-  "main": "entry.js",
+  "main": "server.js",
   "dependencies": {
+    "express": "^4.12.3",
+    "node-tweet-stream": "^1.6.0",
+    "socket.io": "^1.3.5"
+  },
+  "devDependencies": {
     "eslint": "^0.18.0",
     "jshint": "^2.6.3"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

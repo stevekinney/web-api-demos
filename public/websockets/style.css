@@ -1,0 +1,14 @@
+.message-submission {
+  padding: 1em;
+  background-color: #EEE;
+}
+
+.status {
+  background-color: rgb(255, 245, 213);
+  padding: 1em;
+  margin: 1em 0;
+}
+
+.message strong {
+  font-weight: 700px;
+}

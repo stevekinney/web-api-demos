@@ -1,11 +1,15 @@
 {
   "env": {
-    "browser": true
+    "browser": true,
+    "node": true
   },
   "rules": {
     "quotes": [1, "single"],
     "no-console": false,
-    "no-use-before-define": false
+    "no-use-before-define": false,
+    "camelcase": true,
+    "strict": false,
+    "new-cap": true
   },
   "ecmaFeatures": {
     "templateStrings": true
@@ -13,6 +17,7 @@
   "globals": {
     "document": true,
     "console": true,
-    "window": true
+    "window": true,
+    "io": true
   }
 }
