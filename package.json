@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Some quick demos showing off what the web can do.",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "express": "^4.12.3",
     "node-tweet-stream": "^1.6.0",
