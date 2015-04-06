@@ -7,15 +7,24 @@
 
   var findMeButton = document.querySelector('.get-location');
   var watchMeButton = document.querySelector('.watch-location');
+  var stopWatchingMeButton = document.querySelector('.stop-watching-location');
 
-  findMeButton.onclick = function(){
+  findMeButton.addEventListener('click', function () {
     navigator.geolocation.getCurrentPosition(updateLocation);
-  };
+  });
 
-  watchMeButton.onclick = function(){
-    var watchID = navigator.geolocation.watchPosition(updateLocation);
-    addButtonToStopWatchingLocation(watchID);
-  };
+  var watchID;
+  watchMeButton.addEventListener('click', function () {
+    watchID = navigator.geolocation.watchPosition(updateLocation);
+    watchMeButton.disabled = true;
+    stopWatchingMeButton.disabled = false;
+  });
+
+  stopWatchingMeButton.addEventListener('click', function () {
+    navigator.geolocation.clearWatch(watchID);
+    watchMeButton.disabled = false;
+    stopWatchingMeButton.disabled = true;
+  });
 
   function updateLocation(position) {
     var lat = position.coords.latitude;
@@ -26,17 +35,6 @@
 
     mapLink.href = `https://www.google.com/maps/preview/@${lat},${long},20z`;
     mapLink.parentElement.classList.remove('hidden');
-  }
-
-  function addButtonToStopWatchingLocation(watchID) {
-    var stopWatchingButton = document.createElement('button');
-    stopWatchingButton.className = 'stop-watching';
-    stopWatchingButton.textContent = 'Stop Watching';
-    stopWatchingButton.onclick = function(){
-      navigator.geolocation.clearWatch(watchID);
-      this.remove();
-    };
-    watchMeButton.parentElement.appendChild(stopWatchingButton);
   }
 
 }());
