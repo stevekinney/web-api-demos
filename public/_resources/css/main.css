@@ -70,3 +70,7 @@ a:hover {
 a:active {
   color: rgb(29, 178, 212);
 }
+
+strong {
+  font-weight: 400;
+}
