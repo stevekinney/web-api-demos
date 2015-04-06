@@ -1,6 +1,6 @@
 /* globals io */
 
-(function () {
+(function(){
   'use strict';
 
   // Initialize the WebSocket connection.

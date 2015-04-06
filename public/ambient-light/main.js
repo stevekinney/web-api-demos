@@ -1,4 +1,4 @@
-(function () {
+(function(){
   'use strict';
 
   // Find the element where we plan on displaying the current lux.

@@ -1,0 +1,12 @@
+.transcripts {
+  background-color: #DDD;
+  margin: 1em 0;
+  min-height: 500px;
+  padding: 1em;
+}
+
+.transcription {
+  background-color: #EEE;
+  margin: 0.5em;
+  padding: 0.5em;
+}

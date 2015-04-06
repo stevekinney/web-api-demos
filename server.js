@@ -16,7 +16,7 @@ io.on('connection', function (socket) {
     io.sockets.emit('new message', data);
   });
 
-  socket.on('disconnect', function () {
+  socket.on('disconnect', function(){
     console.log('Someone disconnected.');
     socket.broadcast.emit('lost connection', {
       connections: io.engine.clientsCount
@@ -24,6 +24,6 @@ io.on('connection', function (socket) {
   });
 });
 
-http.listen(3000, function () {
+http.listen(3000, function(){
   console.log('Listening on Port 3000');
 });

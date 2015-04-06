@@ -1,4 +1,4 @@
-(function () {
+(function(){
   'use strict';
 
   var latitudeElement = document.querySelector('.latitude');
@@ -8,11 +8,11 @@
   var findMeButton = document.querySelector('.get-location');
   var watchMeButton = document.querySelector('.watch-location');
 
-  findMeButton.onclick = function () {
+  findMeButton.onclick = function(){
     navigator.geolocation.getCurrentPosition(updateLocation);
   };
 
-  watchMeButton.onclick = function () {
+  watchMeButton.onclick = function(){
     var watchID = navigator.geolocation.watchPosition(updateLocation);
     addButtonToStopWatchingLocation(watchID);
   };
@@ -32,7 +32,7 @@
     var stopWatchingButton = document.createElement('button');
     stopWatchingButton.className = 'stop-watching';
     stopWatchingButton.textContent = 'Stop Watching';
-    stopWatchingButton.onclick = function () {
+    stopWatchingButton.onclick = function(){
       navigator.geolocation.clearWatch(watchID);
       this.remove();
     };

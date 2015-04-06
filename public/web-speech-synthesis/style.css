@@ -1,0 +1,13 @@
+select {
+  background: #EEE;
+  border: none;
+  font-size: 14px;
+  height: 29px;
+  width: 268px;
+  float: right;
+}
+
+input[type=text] {
+  background-color: #EEE;
+  font-size: 1.2em;
+}

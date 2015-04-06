@@ -54,6 +54,10 @@ button:active, input[type=submit]:active, .button:active {
   background-color: rgb(19, 178, 202);
 }
 
+button:disabled, input[type=submit]:disabled, .button:disabled {
+  background-color: rgb(225, 225, 225);
+}
+
 a {
   color: rgb(49, 198, 232);
   text-decoration: none;

@@ -1,0 +1,6 @@
+{
+  "disallowSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningRoundBrace": false,
+    "beforeOpeningCurlyBrace": false
+  }
+}
