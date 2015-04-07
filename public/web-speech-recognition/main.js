@@ -1,6 +1,6 @@
-var startRecognitionButton = document.getElementById('start-recognition');
-var stopRecognitionButton = document.getElementById('stop-recognition');
-var transcriptions = document.querySelector('.transcripts');
+var $startRecognitionButton = $('#start-recognition');
+var $stopRecognitionButton = $('#stop-recognition');
+var $transcriptions = $('.transcripts');
 
 var SpeechRecognition = window.SpeechRecognition ||
                         window.webkitSpeechRecognition;
@@ -21,24 +21,22 @@ recognition.onresult = function (event) {
 recognition.onstart = function () { console.log('Starting…'); };
 recognition.onend = function () { console.log('Ending…'); };
 
-startRecognitionButton.addEventListener('click', function () {
+$startRecognitionButton.on('click', function () {
   toggleRecognitionButtons();
   recognition.start();
 });
 
-stopRecognitionButton.addEventListener('click', function () {
+$stopRecognitionButton.on('click', function () {
   toggleRecognitionButtons();
   recognition.stop();
 });
 
 function toggleRecognitionButtons() {
-  startRecognitionButton.disabled = !startRecognitionButton.disabled;
-  stopRecognitionButton.disabled = !stopRecognitionButton.disabled;
+  $startRecognitionButton.toggle();
+  $stopRecognitionButton.toggle();
 }
 
 function appendTranscriptionToPage(result) {
-  var transcription = document.createElement('p');
-  transcription.className = 'transcription';
-  transcription.textContent = `${result.transcript} (${result.confidence})`;
-  transcriptions.appendChild(transcription);
+  var $transcription = $(`<p>${result.transcript} (${result.confidence})</p>`);
+  $transcriptions.append($transcription);
 }

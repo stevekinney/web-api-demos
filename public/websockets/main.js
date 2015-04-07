@@ -7,19 +7,19 @@
   var socket = io();
 
   // Grab some DOM element that we're going to be using throughout the application.
-  var author = document.getElementById('author');
-  var message = document.getElementById('message');
-  var submitButton = document.getElementById('submit');
+  var author = $('#author');
+  var message = $('#message');
+  var submitButton = $('#submit');
 
-  var messages = document.querySelector('.messages');
-  var statusMessage = document.querySelector('.status');
+  var messages = $('.messages');
+  var statusMessage = $('.status');
 
   // Send a message over the WebSocket when the form is submitted.
-  submitButton.addEventListener('click', function (event) {
+  submitButton.on('click', function (event) {
     event.preventDefault();
     socket.send('message', {
-      author: author.value,
-      message: message.value
+      author: author.val(),
+      message: message.val()
     });
   });
 
@@ -31,14 +31,8 @@
   // Utility functions for modifying the page when an event is received over the
   // WebSocket connection.
   function addMessageToPage(data) {
-    var messageAuthor = document.createElement('strong');
-    messageAuthor.appendChild(document.createTextNode(`${data.author}: `));
-    var messageContent = document.createTextNode(data.message);
-    var newMessage = document.createElement('p');
-    newMessage.className = 'message';
-    newMessage.appendChild(messageAuthor);
-    newMessage.appendChild(messageContent);
-    messages.appendChild(newMessage);
+    $(`<p></p>`).text(`${data.author}: ${data.message}`)
+                .appendTo(messages);
   }
 
   function updateStatus(connectionMessage, data) {
@@ -49,6 +43,6 @@
     } else {
       numberOfUsers = `There are now ${data.connections} users.`;
     }
-    statusMessage.textContent = `${connectionMessage} ${numberOfUsers}`;
+    statusMessage.text(`${connectionMessage} ${numberOfUsers}`);
   }
 }());

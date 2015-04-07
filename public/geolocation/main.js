@@ -1,40 +1,41 @@
 (function(){
   'use strict';
 
-  var latitudeElement = document.querySelector('.latitude');
-  var longitudeElement = document.querySelector('.longitude');
-  var mapLink = document.querySelector('.google-maps-link');
+  var $latitudeElement = $('.latitude');
+  var $longitudeElement = $('.longitude');
+  var $mapLink = $('.google-maps-link');
 
-  var findMeButton = document.querySelector('.get-location');
-  var watchMeButton = document.querySelector('.watch-location');
-  var stopWatchingMeButton = document.querySelector('.stop-watching-location');
+  var $findMeButton = $('.get-location');
+  var $watchMeButton = $('.watch-location');
+  var $stopWatchingMeButton = $('.stop-watching-location');
 
-  findMeButton.addEventListener('click', function () {
+  $findMeButton.on('click', function () {
     navigator.geolocation.getCurrentPosition(updateLocation);
   });
 
   var watchID;
-  watchMeButton.addEventListener('click', function () {
+  $watchMeButton.on('click', function () {
     watchID = navigator.geolocation.watchPosition(updateLocation);
-    watchMeButton.disabled = true;
-    stopWatchingMeButton.disabled = false;
+    $watchMeButton.attr('disabled', true);
+    $stopWatchingMeButton.attr('disabled', false);
   });
 
-  stopWatchingMeButton.addEventListener('click', function () {
+  $stopWatchingMeButton.on('click', function () {
     navigator.geolocation.clearWatch(watchID);
-    watchMeButton.disabled = false;
-    stopWatchingMeButton.disabled = true;
+    $watchMeButton.attr('disabled', false);
+    $stopWatchingMeButton.attr('disabled', true);
   });
 
   function updateLocation(position) {
     var lat = position.coords.latitude;
-    var long = position.coords.longitude;
+    var lng = position.coords.longitude;
 
-    latitudeElement.textContent = lat;
-    longitudeElement.textContent = long;
+    $latitudeElement.text(lat);
+    $longitudeElement.text(lng);
 
-    mapLink.href = `https://www.google.com/maps/preview/@${lat},${long},20z`;
-    mapLink.parentElement.classList.remove('hidden');
+    var googleMapUrl = `https://www.google.com/maps/preview/@${lat},${lng},20z`;
+
+    $mapLink.attr('href', googleMapUrl).parent().show();
   }
 
 }());

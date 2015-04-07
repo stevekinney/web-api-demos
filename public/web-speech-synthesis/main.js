@@ -2,17 +2,17 @@
 
 // This will only work in Chrome and Safari.
 
-var readTextButton = document.getElementById('read-text');
-var voiceList = document.getElementById('voices');
+var textToRead = $('#read-me');
+var readTextButton = $('#read-text');
+var voiceList = $('#voices');
 
 function readText() {
-  readTextButton = document.getElementById('read-text');
-  readTextButton.disabled = false;
+  readTextButton.attr('disabled', false);
 
-  readTextButton.addEventListener('click', function () {
+  readTextButton.on('click', function () {
     var speechSynthesis = window.speechSynthesis;
 
-    var text = document.getElementById('read-me').value;
+    var text = textToRead.val();
     var utterance = new SpeechSynthesisUtterance(text);
 
     utterance.voice = getSelectedVoice();
@@ -23,15 +23,12 @@ function readText() {
 
 function populateListOfVoices() {
   window.speechSynthesis.getVoices().forEach(function (voice) {
-    var voiceOption = document.createElement('option');
-    voiceOption.value = voice.name;
-    voiceOption.textContent = voice.name;
-    voiceList.appendChild(voiceOption);
+    $('<option>').val(voice.name).text(voice.name).appendTo(voiceList);
   });
 }
 
 function getSelectedVoice() {
-  var selectedVoice = voiceList.value;
+  var selectedVoice = voiceList.val();
   return window.speechSynthesis.getVoices().filter(function (voice) {
     return voice.name === selectedVoice;
   })[0];

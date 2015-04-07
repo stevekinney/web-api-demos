@@ -18,6 +18,8 @@
     "document": true,
     "console": true,
     "window": true,
-    "io": true
+    "io": true,
+    "$": true,
+    "jQuery": true
   }
 }
