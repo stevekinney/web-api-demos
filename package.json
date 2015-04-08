@@ -4,7 +4,8 @@
   "description": "Some quick demos showing off what the web can do.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "bower install"
   },
   "dependencies": {
     "express": "^4.12.3",
